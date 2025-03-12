@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+// Function to find LCM using recursion
+int find_lcm(int num1, int num2, int multiple) {
+    if (multiple % num1 == 0 && multiple % num2 == 0)
+        return multiple; // Found LCM
+    return find_lcm(num1, num2, multiple + 1); // Recursive call
+}
+
+int main() {
+    int num1, num2, lcm;
+
+    // Input from user
+    printf("Input first number: ");
+    scanf("%d", &num1);
+    printf("Input second number: ");
+    scanf("%d", &num2);
+
+    // Function call (starting from max(num1, num2))
+    lcm = find_lcm(num1, num2, (num1 > num2) ? num1 : num2);
+
+    // Output the result
+    printf("LCM of %d and %d = %d\n", num1, num2, lcm);
+
+    return 0;
+}
